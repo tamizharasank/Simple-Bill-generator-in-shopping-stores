@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html"; charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Bootstrap core CSS     -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" />
+    <!--  Material Dashboard CSS    -->
+    <link href="../static/css/material-dashboard.css?v=1.2.0" rel="stylesheet" />
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="../static/css/demo.css" rel="stylesheet" />
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        label{
+            font-size: 1.5em!important;
+        }
+        a{
+            font-size: 1.2em!important;
+        }
+    </style>
+</head>
+
+<body style="background: #fff" ng-controller="ctrl">
+    <div class="wra">
+
+        <div class="main-pan">
+            <nav class="navbar navbar-transparent navbar-a">
+                <div class="container-fluid">
+
+
+<ul class="nav nav-pills nav-pills-info">
+  <li class="active"><a href="#pill1" data-toggle="tab">முதல் பக்கம்</a></li>
+  <li><a href="/update">பொருள்கள்</a></li>
+  <li><a href="/view">பட்டியல்</a></li>
+  <li><a href="/balance">Balance</a></li>
+</ul>                        
+
+                </div>
+            </nav>
+            <div class="content">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header" data-background-color="purple">
+                                    <h4 class="title">புதுசாக இணைப்பது</h4>                                    
+                                </div>
+                                <div class="card-content">
+                                    <form action="/addd" method="post" enctype="multipart/form-data">
+                                        <div class="row">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">பெயர்
+</label>
+                                                    <input type="text" name="name" class="form-control" ng-model="name">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">tamil பெயர்
+</label>
+                                                    <input type="text" name="tamil_name" class="form-control" ng-model="tamil_name">
+                                                </div>
+                                            </div>                                            
+                                            <div class="col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">விலை</label>
+                                                    <input type="number" name="price" class="form-control" ng-model="price">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">புதுவிலை</label>
+                                                    <input type="number" name="nprice" class="form-control" ng-model="nprice">
+                                                </div>
+                                            </div>                                                  
+                                        </div>
+                                      <center>  <button type="submit" style="font-size: 1.5em;" class="btn btn-round btn-primary center" ng-click="useradd(name,price,nprice)">சேர்</button> </center>                                      
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<script src="../static/js/angular.js">
+</script>
+<script>
+var uid = 1;
+var app = angular.module('myApp', []);
+   app.controller('ctrl', function($scope, $http) {
+
+$scope.add=true;
+$scope.update=true;
+
+// $http.get("/user.json")
+// .success(function (data) {
+  
+//     $scope.samp={};
+//   $scope.names1 = data;
+
+
+// });
+
+$scope.newphoto="";
+ $scope.uploadFile = function(files) {
+            $scope.file = new FormData();
+            $scope.file.append("file", files[0]);
+            $scope.newphoto = files[0].name;
+
+        };
+ $scope.submitGuideDetailsForm= function() {
+     $http.post('/add_photo', $scope.file, {
+           headers: {'Content-Type': undefined },
+           transformRequest: angular.identity
+          }).success(function(results) 
+           {   
+              $log.log('success load file')
+           }).error(function(error) 
+           {
+              $log.log('error load file!!!!!')
+              $log.log(error);
+           });
+       };
+
+$scope.useradd = function useradd(name,price,quantity,tamil_name) {
+    // alert(name + price + quantity);
+    var up={"name":name,"price":price,"newprice":quantity,"tamil_name":tamil_name};
+    // alert(up.file);
+    $http.post("/add_ne",up).success(function (data) {
+        $scope.msg=data;
+        // alert(data);
+    });
+}
+    });
+   app.config(['$interpolateProvider', function($interpolateProvider) {
+  $interpolateProvider.startSymbol('{a');
+  $interpolateProvider.endSymbol('a}');
+}]);
+</script>
+<!--   Core JS Files   -->
+<script src="../static/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="../static/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../static/js/material.min.js" type="text/javascript"></script>
+<script src="../static/js/material-dashboard.js?v=1.2.0"></script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="ta" ng-app="myApp">
+
+<head>
+    
+    
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>stores  </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Bootstrap core CSS     -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" />
+    <!--  Material Dashboard CSS    -->
+    <link href="../static/css/material-dashboard.css?v=1.2.0" rel="stylesheet" />
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="../static/css/demo.css" rel="stylesheet" />
+    <!--     Fonts and icons     -->
+    <link href="..static/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        @font-face {
+            font-family: Bamini;
+            src: url(Bamini.TTF);
+        }
+        input{font-family: fantasy;}
+           table,tr,th{color: black!important;font-size: 1.1em;}
+      a{
+            font-size: 1.2em!important;
+        }
+    </style>
+    <style type="text/css" media="print">
+    @page 
+    {
+        size: auto;   /* auto is the initial value */
+        margin: 0mm;  /* this affects the margin in the printer settings */
+    }
+
+</style>
+</head>
+
+<body style="background: #fff" ng-controller="ctrl">
+    <div class="wrappe">
+            <datalist id="vall">
+                <option value="0.5">1/2</option>
+<option value="1.0">1</option>
+<option value="1.5">1 1/2</option>
+<option value="2.0">2</option>
+<option value="2.5">2 1/2</option>
+<option value="3.0">3</option>
+<option value="3.5">3 1/2</option>
+<option value="4.0">4</option>
+<option value="4.5">4 1/2</option>
+<option value="5.0">5</option>
+<option value="5.5">5 1/2</option>
+<option value="6.0">6</option>
+<option value="6.5">6 1/2</option>
+<option value="7.0">7</option>
+<option value="7.5">7 1/2</option>
+<option value="8.0">8</option>
+<option value="8.5">8 1/2</option>
+<option value="9.0">9</option>
+<option value="9.5">9 1/2</option>
+<option value="10.0">10</option>
+<option value="10.5">10 1/2</option>
+<option value="11.0">11</option>
+<option value="11.5">11 1/2</option>
+<option value="12.0">12</option>
+<option value="12.5">12 1/2</option>
+<option value="13.0">13</option>
+<option value="13.5">13 1/2</option>
+<option value="14.0">14</option>
+<option value="14.5">14 1/2</option>
+<option value="15.0">15</option>
+<option value="15.5">15 1/2</option>
+<option value="16.0">16</option>
+<option value="16.5">16 1/2</option>
+<option value="17.0">17</option>
+<option value="17.5">17 1/2</option>
+<option value="18.0">18</option>
+<option value="18.5">18 1/2</option>
+<option value="19.0">19</option>
+<option value="19.5">19 1/2</option>
+<option value="20.0">20</option>
+<option value="20.5">20 1/2</option>
+<option value="21.0">21</option>
+<option value="21.5">21 1/2</option>
+<option value="22.0">22</option>
+<option value="22.5">22 1/2</option>
+<option value="23.0">23</option>
+<option value="23.5">23 1/2</option>
+<option value="24.0">24</option>
+<option value="24.5">24 1/2</option>
+<option value="25.0">25</option>
+<option value="25.5">25 1/2</option>
+<option value="26.0">26</option>
+<option value="26.5">26 1/2</option>
+<option value="27.0">27</option>
+<option value="27.5">27 1/2</option>
+<option value="28.0">28</option>
+<option value="28.5">28 1/2</option>
+<option value="29.0">29</option>
+<option value="29.5">29 1/2</option>
+<option value="30.0">30</option>
+<option value="30.5">30 1/2</option>
+<option value="31.0">31</option>
+<option value="31.5">31 1/2</option>
+<option value="32.0">32</option>
+<option value="32.5">32 1/2</option>
+<option value="33.0">33</option>
+<option value="33.5">33 1/2</option>
+<option value="34.0">34</option>
+<option value="34.5">34 1/2</option>
+<option value="35.0">35</option>
+<option value="35.5">35 1/2</option>
+<option value="36.0">36</option>
+<option value="36.5">36 1/2</option>
+<option value="37.0">37</option>
+<option value="37.5">37 1/2</option>
+<option value="38.0">38</option>
+<option value="38.5">38 1/2</option>
+<option value="39.0">39</option>
+<option value="39.5">39 1/2</option>
+<option value="40.0">40</option>
+<option value="40.5">40 1/2</option>
+<option value="41.0">41</option>
+<option value="41.5">41 1/2</option>
+<option value="42.0">42</option>
+<option value="42.5">42 1/2</option>
+<option value="43.0">43</option>
+<option value="43.5">43 1/2</option>
+<option value="44.0">44</option>
+<option value="44.5">44 1/2</option>
+<option value="45.0">45</option>
+<option value="45.5">45 1/2</option>
+<option value="46.0">46</option>
+<option value="46.5">46 1/2</option>
+<option value="47.0">47</option>
+<option value="47.5">47 1/2</option>
+<option value="48.0">48</option>
+<option value="48.5">48 1/2</option>
+<option value="49.0">49</option>
+<option value="49.5">49 1/2</option>
+<option value="50.0">50</option>
+<option value="50.5">50 1/2</option>
+                                </datalist> 
+        <div class="main-pane">
+
+            <div class="content">
+                <div class="container-fluid">
+                    <ul class="nav nav-pills nav-pills-info">
+  <li class="active"><a href="/">முதல் பக்கம்</a></li>
+  <li><a href="/update">பொருள்கள்</a></li>
+  <li><a href="#">பட்டியல்</a></li>
+  <li><a href="/balance">Balance</a></li>
+</ul>  
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header" data-background-color="purple">
+                                    <h4 class="title">Bill</h4>
+                                    <p class="category"></p>
+                                </div>                                  
+                                <datalist id="name">
+                                    <option ng-repeat="v in view" value="{a v.name a}">{a v.name a}</option>
+                                </datalist>                   
+                                
+                                            
+                                <div class="card-content table-responsive">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                         <ul class="nav nav-pills nav-pills-info">
+                                    <li class="active"><a href="#pdf" onclick="printDiv('printableArea');" ng-click="update(Total,customername)" data-toggle="tab">print pdf</a></li>
+                                            </ul> </div>
+                                            <!-- <div class="col-md-4">
+                                     <input type="text" class="form-control " placeholder="Enter customer name....." ng-model='customer_name'>    </div><br> -->                             
+
+                                     <center>
+                                     <table style="width: 100%">
+                                    <tr><td><input type="text" style="font-size: 20px" class="form-control " placeholder="Enter customer name....." ng-model='customername'></td>
+                                   <td><input style="font-size: 20px" type="text" list="name" class="form-control" ng-model="pr" placeholder="பொருள்கள்"></td>
+                                    <td> <input type="text" class="form-control" list="vall" ng-model="quan" placeholder="அளவு"></td>
+                                   <th>தொகை </th>
+                                   <td ng-repeat="vi in view" ng-if="vi.name == pr">{a vi.price a}</td>
+                                   <th>new</th><td ng-repeat="vi in view" ng-if="vi.name == pr">{a vi.newprice a}</td><th>மொத்த தொகை </th><td ng-repeat="vi in view" ng-if="vi.name == pr">{a vi.price * quan a}</td> </td>
+                                <td><button type="submit" ng-click="cal(pr,quan); reset(pr,quan)">click</button> </td>
+                                </tr>   </table> </center>
+                        
+                                            
+                            </div>
+                                                <div id="printableArea">
+                                <center>    <table>
+                                        <style type="text/css">
+                                            tr,th,td{padding: 5px;}
+                                        </style>
+                                            <h3>சுபலக்ஷ்மி ஸ்டோர்ஸ்</h3>
+                                            <h4>PHONE NO:9843554541</h4>
+                                           <tr><th>Customer Name:</th><td>{a customername a}</td></tr>
+                                         
+                                           <tr><th>Date:</th><td>{a ny a}</td></tr>  
+                                           <tr><th>Time:</th><td>{a  a}</td></tr>
+                                           <tr style="border:1px dotted;"> <th>விலை</th>
+                                            <th>பொருள்</th>                                            
+                                            <th>அளவு</th>
+                                            <th>தொகை</th>
+                                                                                      </tr>
+                                     
+                                        <tbody>
+                                            <tr ng-repeat="v in add"> 
+                                                <td class="text-primary">{a v.Price a}</td>
+
+                                                <td ng-click="delete(v.Amount,$index)">{a v.Name a}</td>
+                                                <td>{a v.Quantity a}</td>
+                                                <td>{a v.Amount a}</td>                                                
+                                            </tr>  
+                                            <tr style="border:1px dotted;"><th>மொத்தம்</th><td></td><td></td><td>{a Total a}</td></tr>    
+                                            <tr><td><b>Items</b> {a items a}</td><td><b>Total Quantity</b> {a tquan a}</td></tr>  <hr>
+
+                                        </tbody>
+                                    </table>
+                                    <h3>Net Total {a Total a}</h3><hr>
+                                    <h5>Thank you for Purchasing!!!</h5>
+                                     </center>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<script>
+function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+<script src="../static/js/angular.js">
+</script>
+<script>
+var uid = 1;
+var app = angular.module('myApp', []);
+   app.controller('ctrl', function($scope, $http) {
+
+$http.get("/view.json")
+.success(function (data) {
+  $scope.view = data;
+
+
+});
+
+$scope.reset = function (na,qua) {
+    $scope.pr="";
+    $scope.quan="";
+}
+
+$scope.add=[];
+var da = new Date();
+$scope.ny = da.toDateString();
+// $scope.am=0;
+$scope.Total=0;
+$scope.tquan=0;
+$scope.items=0;
+$scope.cal = function cal(pr,quan) {
+    // alert(pr + quan)
+    var q=parseInt(quan);
+    $scope.items+=1;
+    for (var i = 0; i < $scope.view.length; i++) {
+    if ($scope.view[i].name == pr) {
+        $scope.prr=$scope.view[i].price;
+        $scope.am=$scope.prr*quan;
+        $scope.tquan+=q;
+    var c = {"Name":$scope.view[i].tamil_name ,"Price":$scope.prr ,"Quantity":quan,"Amount":$scope.am};
+        $scope.add.push(c);
+        $scope.Total+=$scope.am;
+        }    
+    }
+}
+
+$scope.delete = function (rv,index) {
+  // var index = $scope.add.indexOf(index);
+    // alert(index)
+    $scope.Total -= rv;
+    $scope.add.splice(index,1);
+}
+$scope.update=function(total,name){
+    var data={"name":name,"total":total};
+    
+    $http.post("/report_update",data).success(function(data){
+
+    });
+}
+
+    });
+   app.config(['$interpolateProvider', function($interpolateProvider) {
+  $interpolateProvider.startSymbol('{a');
+  $interpolateProvider.endSymbol('a}');
+}]);
+</script>
+</body>
+
+<!--   Core JS Files   -->
+<script src="../static/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="../static/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../static/js/material.min.js" type="text/javascript"></script>
+
+<script src="../static/js/material-dashboard.js?v=1.2.0"></script>
+
+
+</html>

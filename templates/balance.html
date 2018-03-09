@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html"; charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Bootstrap core CSS     -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" />
+    <!--  Material Dashboard CSS    -->
+    <link href="../static/css/material-dashboard.css?v=1.2.0" rel="stylesheet" />
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="../static/css/demo.css" rel="stylesheet" />
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        label{
+            font-size: 1.5em!important;
+        }
+        a{
+            font-size: 1.2em!important;
+        }
+    </style>
+</head>
+
+<body style="background: #fff" ng-controller="ctrl">
+    <div class="wrappe">
+<ul class="nav nav-pills nav-pills-info">
+  <li class="active"><a href="/">முதல் பக்கம்</a></li>
+  <li><a href="/update">பொருள்கள்</a></li>
+  <li><a href="/view">பட்டியல்</a></li>
+   <li><a href="/balance">Balance</a></li>
+   <li><a href="/report">Report</a></li>
+
+</ul>   
+        <div class="main-pane">
+            <nav class="navbar navbar-transparent navbar-absolute">
+                <div class="container-fluid">
+
+
+                     
+
+                </div>
+            </nav>
+            <div class="content">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header" data-background-color="purple">
+                                    <h4 class="title">புதுசாக இணைப்பது</h4>                                    
+                                </div>
+                                <div class="card-content">
+                                    <form method="post" enctype="multipart/form-data">
+                                        <div class="row">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Name
+</label>
+                                                    <input type="text" name="name" class="form-control" ng-model="name">
+                                                </div>
+                                            </div>
+                                             <div class="col-md-4">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Total Amount</label>
+                                                    <input type="number" name="price" class="form-control" ng-model="total_amount">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Balance Amount</label>
+                                                    <input type="number" name="price" class="form-control" ng-model="balance_amount">
+                                                </div>
+                                            </div>
+
+                                                  
+                                        </div>
+                                      <center>  <button type="submit" style="font-size: 1.5em;" class="btn btn-round btn-primary center" ng-click="useradd(name,total_amount,balance_amount)">சேர்</button> </center>                                      
+                                        <div class="clearfix"></div>
+                                    </form>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" placeholder="Enter name.." ng-model='search'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                      <table class="table">
+                        <tr><th>Name</th><th>Purchase Amount</th><th>Balance Amount</th><th>Buy Amount</th><th>Date</th><th>Edit</th><th>Delete</th></tr>
+                        <tr ng-repeat="d in datas| filter: search"><td>{a d.name a}</td><td>{a d.total_amount a}</td><td>{a d.balance_amount a}</td><td>{a d.total_amount-d.balance_amount a}</td><td>{a d.date a}</td><td><a data-toggle="modal" data-target="#myModal" ng-click="edit(d.id,d.name,d.balance_amount,d.total_amount)">E</a></td><td><a ng-click="delete(d.id,$index)">X</a></td></tr>
+                      </table>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Modal Core -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Edit Product</h4>
+      </div>
+      <div class="modal-body">
+          <div class="row">
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">Name
+</label>
+                                                    <input type="text" name="name" class="form-control" ng-model="name1">
+                                                </div>
+                                            </div>
+                                             <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Total Amount</label>
+                                                    <input type="text" name="price" class="form-control" ng-model="totalamount1">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Balance Amount</label>
+                                                    <input type="text" name="price" class="form-control" ng-model="balamount1">
+                                                </div>
+                                            </div>
+
+                                                  
+                                        
+                                            <div class="col-md-3">
+                                                    <button type="submit" style="font-size: 1.5em;" class="btn btn-round btn-primary center" ng-click="balupdate(id1,name1,totalamount1,balamount1)" data-dismiss="modal">சேர்</button> 
+                                                </div>
+                                            </div>
+        
+      </div>
+    
+    </div>
+  </div>
+</div>    
+<script src="../static/js/angular.js">
+</script>
+<script>
+var uid = 1;
+var app = angular.module('myApp', []);
+   app.controller('ctrl', function($scope, $http) {
+
+$scope.add=true;
+$scope.update=true;
+
+
+$http.get("/balance.json").success(function (data) {
+  
+  $scope.datas = data;
+  // alert( $scope.datas);
+
+});
+
+$scope.edit = function edit(id,name,balance_amount,total_amount) {
+  $scope.id1=id;
+
+    // for (var i = 0; i < $scope.datas.length; i++) {
+        // if ($scope.datas[i].id==id) {
+        $scope.name1=name;
+        $scope.balamount1=balance_amount;
+        $scope.totalamount1=total_amount; 
+
+        // }
+    }
+    
+
+$scope.delete = function (rv,index) {   
+
+ $http.post("/bal_delete/"+rv).success(function (data) {
+        alert(data)        
+    });
+ 
+    $scope.datas.splice(index,1);
+}
+
+$scope.useradd = function useradd(name,total_amount,balance_amount) {
+
+    var up={"name":name,"total_amount":total_amount,"balance_amount":balance_amount};
+    $http.post("/balance_amount",up).success(function (data) {
+        alert(data);
+        
+    });
+}
+$scope.balupdate = function balupdate(id,name,total_amount,balance_amount) {
+
+    var up={"id":id,"name":name,"total_amount":total_amount,"balance_amount":balance_amount};
+    $http.post("/balupdate",up).success(function (data) {
+        alert(data);
+        
+    });
+}
+
+
+
+    });
+   app.config(['$interpolateProvider', function($interpolateProvider) {
+  $interpolateProvider.startSymbol('{a');
+  $interpolateProvider.endSymbol('a}');
+}]);
+</script>
+<!--   Core JS Files   -->
+<script src="../static/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="../static/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../static/js/material.min.js" type="text/javascript"></script>
+<script src="../static/js/material-dashboard.js?v=1.2.0"></script>
+</body>
+</html>
